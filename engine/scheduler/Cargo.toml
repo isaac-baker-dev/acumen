@@ -1,0 +1,16 @@
+[package]
+name = "acumen-scheduler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7"
+chrono = "0.4"
+prost = "0.12"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tonic = "0.11"
+tower-http = { version = "0.5", features = ["cors"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"

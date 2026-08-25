@@ -1,0 +1,41 @@
+syntax = "proto3";
+package acumen;
+
+// Messages for DAG task management
+message Task {
+  string id = 1;
+  string name = 2;
+  string agent = 3;
+  string payload = 4;
+  repeated string depends_on = 5;
+  int32 priority = 6;
+  int32 timeout_seconds = 7;
+}
+
+message Pipeline {
+  string id = 1;
+  string name = 2;
+  repeated Task tasks = 3;
+}
+
+message TaskResult {
+  string task_id = 1;
+  string status = 2;
+  string output = 3;
+  double duration_seconds = 4;
+}
+
+message SubmitRequest { Pipeline pipeline = 1; }
+message SubmitResponse { string pipeline_id = 1; string status = 2; }
+message StatusRequest { string pipeline_id = 1; }
+message StatusResponse {
+  string pipeline_id = 1;
+  string status = 2;
+  repeated TaskResult results = 3;
+}
+
+// DAG Engine Service
+service AcumenDAG {
+  rpc SubmitPipeline(SubmitRequest) returns (SubmitResponse);
+  rpc GetStatus(StatusRequest) returns (StatusResponse);
+}
