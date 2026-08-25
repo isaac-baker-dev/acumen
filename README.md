@@ -4,6 +4,8 @@
 
 \*\*A local-first personal AI operating system — private, self-hosted, and running entirely on a single laptop.\*\*
 
+![Acumen dashboard](screenshots/dashboard.png)
+
 
 
 Acumen is a fully private AI system that runs on your own machine with no cloud dependency and no data ever leaving the device. It coordinates a crew of specialized AI agents, a layered memory system, a searchable knowledge base, and a secure code sandbox — all behind a local web interface and a Telegram bot.
